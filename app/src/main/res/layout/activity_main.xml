@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/main_page_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.qmuiteam.qmui.widget.QMUIViewPager
+            android:id="@+id/fragment_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <RadioGroup
+            android:id="@+id/bottom_tool"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_weight="1"
+            android:background="@color/qmui_config_color_background_pressed"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/search_paper_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/ic_search_paper"
+                android:gravity="center"
+                android:text="Search"
+                android:textColor="@color/text_color_radiobutton"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/paper_lib_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_paper_lib"
+                android:gravity="center"
+                android:text="Libraries"
+                android:textColor="@color/text_color_radiobutton"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/schedule_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_schedule"
+                android:gravity="center"
+                android:text="Schedule"
+                android:textColor="@color/text_color_radiobutton"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/personal_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_personal"
+                android:gravity="center"
+                android:text="Mine"
+                android:textColor="@color/text_color_radiobutton"
+                android:textSize="14sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

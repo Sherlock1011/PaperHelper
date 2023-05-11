@@ -1,0 +1,149 @@
+@startuml
+
+title __ADAPTER's Class Diagram__\n
+
+  namespace com.example.paperhelper {
+    namespace view.adapter {
+      class com.example.paperhelper.view.adapter.MyFragmentAdapter {
+          - fragmentList : List<Fragment>
+          + MyFragmentAdapter()
+          + getCount()
+          + getItem()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.adapter {
+      abstract class com.example.paperhelper.view.adapter.MyGridViewAdapter {
+          - fileList : List<T>
+          - layout_id : int
+          + MyGridViewAdapter()
+          + MyGridViewAdapter()
+          {abstract} + bindView()
+          + getCount()
+          + getItem()
+          + getItemId()
+          + getView()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.adapter {
+      class com.example.paperhelper.view.adapter.MyGridViewAdapter.ViewHolder {
+          - context : Context
+          - item : View
+          - mViews : SparseArray<View>
+          - position : int
+          {static} + bind()
+          + getItemPosition()
+          + getItemView()
+          + getView()
+          + setImageResource()
+          + setOnClickListener()
+          + setOnLongClickListener()
+          + setTag()
+          + setText()
+          + setTypeface()
+          + setVisibility()
+          - ViewHolder()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.adapter {
+      class com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter {
+          - context : Context
+          - inflater : View
+          - recyclerView : RecyclerView
+          - urlItemList : List<PageUrlModel>
+          + PaperPageRecyclerAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onClick()
+          + onCreateViewHolder()
+          + onLongClick()
+          + setOnItemClickListener()
+          + setOnLongClickListener()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.adapter {
+      class com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter.MyViewHolder {
+          ~ pageItem : QMUILinearLayout
+          ~ pageNameText : TextView
+          ~ pageUrlText : TextView
+          + MyViewHolder()
+          - initFontStyle()
+          - initView()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.adapter {
+      class com.example.paperhelper.view.adapter.ScheduleListBaseAdapter {
+          - context : Context
+          - handler : Handler
+          - inflater : View
+          - recyclerView : QMUIContinuousNestedBottomRecyclerView
+          - scheduleList : List<Schedule>
+          - selectedPosition : int
+          + ScheduleListBaseAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onClick()
+          + onCreateViewHolder()
+          + setOnItemClickListener()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.adapter {
+      class com.example.paperhelper.view.adapter.ScheduleListBaseAdapter.MyViewHolder {
+          ~ item_layout : QMUILinearLayout
+          ~ schedule_checkbox : CheckBox
+          + MyViewHolder()
+          - initFontStyle()
+          - initView()
+      }
+    }
+  }
+  
+
+  com.example.paperhelper.view.adapter.MyFragmentAdapter -up-|> androidx.fragment.app.FragmentPagerAdapter
+  com.example.paperhelper.view.adapter.MyGridViewAdapter -up-|> android.widget.BaseAdapter
+  com.example.paperhelper.view.adapter.MyGridViewAdapter +-down- com.example.paperhelper.view.adapter.MyGridViewAdapter.ViewHolder
+  com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter .up.|> android.view.View.OnClickListener
+  com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter .up.|> android.view.View.OnLongClickListener
+  com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter o-- com.example.paperhelper.view.Interface.OnWebItemClickListener : onItemClickListener
+  com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter o-- com.example.paperhelper.view.Interface.OnWebLongClickListener : onLongClickListener
+  com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter +-down- com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter.MyViewHolder
+  com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter.MyViewHolder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.example.paperhelper.view.adapter.ScheduleListBaseAdapter .up.|> android.view.View.OnClickListener
+  com.example.paperhelper.view.adapter.ScheduleListBaseAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.paperhelper.view.adapter.ScheduleListBaseAdapter o-- com.example.paperhelper.view.Interface.OnScheduleItemClickListener : onItemClickListener
+  com.example.paperhelper.view.adapter.ScheduleListBaseAdapter +-down- com.example.paperhelper.view.adapter.ScheduleListBaseAdapter.MyViewHolder
+  com.example.paperhelper.view.adapter.ScheduleListBaseAdapter.MyViewHolder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

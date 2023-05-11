@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/notebook_rename"
+        android:icon="@drawable/baseline_add_24"
+        android:title="rename" />
+    <item
+        android:id="@+id/notebook_delete"
+        android:title="delete" />
+</menu>

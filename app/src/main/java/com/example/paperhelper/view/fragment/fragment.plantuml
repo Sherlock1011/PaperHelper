@@ -1,0 +1,208 @@
+@startuml
+
+title __FRAGMENT's Class Diagram__\n
+
+  namespace com.example.paperhelper {
+    namespace view.fragment {
+      class com.example.paperhelper.view.fragment.NotebookFragment {
+          - activity : Activity
+          - back : ImageView
+          - context : Context
+          - noteEditText : WMEditText
+          - noteMenu : ImageView
+          - noteTitle : TextView
+          - toolContainer : WMToolContainer
+          - view : View
+          + NotebookFragment()
+          + onClick()
+          + onCreateView()
+          - addTools()
+          - initView()
+          - loadNotebook()
+          - popUpMenuShow()
+          - saveNote()
+          - setPopupMenuClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.fragment {
+      class com.example.paperhelper.view.fragment.NotebookListFragment {
+          - CREATE_NEW_NOTEBOOK : int
+          - OPEN_EXIST_NOTEBOOK : int
+          - activity : Activity
+          - context : Context
+          - fragmentManager : FragmentManager
+          - gridViewAdapter : BaseAdapter
+          - notebook_gv : GridView
+          - topBar : QMUITopBar
+          - view : View
+          + NotebookListFragment()
+          + onCreateView()
+          - addNotebook()
+          - createNewNotebook()
+          - deleteNotebook()
+          - initGridView()
+          - initView()
+          - openNotebook()
+          - popupMenuShow()
+          - renameNotebook()
+          - setPopupMenuClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.fragment {
+      class com.example.paperhelper.view.fragment.PaperLibFragment {
+          - activity : Activity
+          - context : Context
+          - emptyText : TextView
+          - fileList : List<FileItem>
+          - folderGridView : GridView
+          + PaperLibFragment()
+          + onCreateView()
+          - initEmptyView()
+          - initView()
+          - openFileFromOutApp()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.fragment {
+      class com.example.paperhelper.view.fragment.PdfShowFragment {
+          - file : File
+          - pdfView : WebView
+          - view : View
+          + PdfShowFragment()
+          + onCreateView()
+          - initView()
+          - loadWebPage()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.fragment {
+      class com.example.paperhelper.view.fragment.PersonalFragment {
+          + onCreateView()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.fragment {
+      class com.example.paperhelper.view.fragment.ScheduleFragment {
+          - add_schedule_btn : FloatingActionButton
+          - context : Context
+          - degree_tv : TextView
+          - difficulty_layout : QMUILinearLayout
+          - difficulty_title_tv : TextView
+          - difficulty_tv : TextView
+          - duration_layout : QMUILinearLayout
+          - duration_title_tv : TextView
+          - duration_tv : TextView
+          - edit_schedule_btn : ImageButton
+          - finishCount : int
+          - handler : Handler
+          - importance_switch : Switch
+          - important_layout : QMUILinearLayout
+          - important_title_tv : TextView
+          - menuButton : ImageButton
+          - non_schedule_layout : ConstraintLayout
+          - non_schedule_tv : TextView
+          - note_layout : QMUILinearLayout
+          - note_title_tv : TextView
+          - progressBar : QMUIProgressBar
+          - remove_schedule_btn : ImageButton
+          - scheduleCount_tv : TextView
+          - scheduleList : List<Schedule>
+          - schedulePosition : int
+          - schedule_content_layout : LinearLayout
+          - scheduledCount : int
+          - time_tv : TextView
+          - title_tv : TextView
+          - unFinishRecyclerView : QMUIContinuousNestedBottomRecyclerView
+          + ScheduleFragment()
+          + onClick()
+          + onCreateView()
+          - addSchedule()
+          - additionProgressing()
+          - decreaseProgressing()
+          - deleteSchedule()
+          - editSchedule()
+          - flushProgressing()
+          - initLeftView()
+          - initList()
+          - initRecyclerView()
+          - initRightView()
+          - initView()
+          - setFontStyle()
+          - setProgressBar()
+          - setScheduleTime()
+          - showScheduleItemInfo()
+      }
+    }
+  }
+  
+
+  namespace com.example.paperhelper {
+    namespace view.fragment {
+      class com.example.paperhelper.view.fragment.SearchPaperFragment {
+          {static} - ARG_PARAM1 : String
+          {static} - ARG_PARAM2 : String
+          - activity : Activity
+          - addBtn : FloatingActionButton
+          - context : Context
+          - handler : Handler
+          - itemList : List<PageUrlModel>
+          - mParam1 : String
+          - mParam2 : String
+          - topBar : QMUITopBar
+          - webPageRecyclerView : QMUIContinuousNestedBottomRecyclerView
+          - webView : WebView
+          + SearchPaperFragment()
+          + onCreateView()
+          - initList()
+          - initRecyclerView()
+          - initView()
+          - initWebView()
+          - loadWebPage()
+          - popupMenuShow()
+          - setPopupMenuClick()
+          - setTopBar()
+      }
+    }
+  }
+  
+
+  com.example.paperhelper.view.fragment.NotebookFragment .up.|> android.view.View.OnClickListener
+  com.example.paperhelper.view.fragment.NotebookFragment -up-|> androidx.fragment.app.Fragment
+  com.example.paperhelper.view.fragment.NotebookFragment o-- com.example.paperhelper.model.bean.NotebookItem : notebook
+  com.example.paperhelper.view.fragment.NotebookListFragment -up-|> androidx.fragment.app.Fragment
+  com.example.paperhelper.view.fragment.PaperLibFragment -up-|> androidx.fragment.app.Fragment
+  com.example.paperhelper.view.fragment.PaperLibFragment o-- com.example.paperhelper.view.adapter.MyGridViewAdapter : gridViewAdapter
+  com.example.paperhelper.view.fragment.PdfShowFragment -up-|> androidx.fragment.app.Fragment
+  com.example.paperhelper.view.fragment.PersonalFragment -up-|> androidx.fragment.app.Fragment
+  com.example.paperhelper.view.fragment.ScheduleFragment .up.|> android.view.View.OnClickListener
+  com.example.paperhelper.view.fragment.ScheduleFragment -up-|> androidx.fragment.app.Fragment
+  com.example.paperhelper.view.fragment.ScheduleFragment o-- com.example.paperhelper.view.adapter.ScheduleListBaseAdapter : adapter
+  com.example.paperhelper.view.fragment.SearchPaperFragment -up-|> androidx.fragment.app.Fragment
+  com.example.paperhelper.view.fragment.SearchPaperFragment o-- com.example.paperhelper.view.adapter.PaperPageRecyclerAdapter : recyclerAdapter
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
